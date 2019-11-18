@@ -181,8 +181,8 @@ class CustomImport extends AbstractEntity
                 if ($data['type_id'] == 'configurable')
                     $arrConfigurable[] = $data['entity_id'];
             }
-            //validate for Updata csv
-            if (isset($rowData['entity_id'])) {
+            //validate for Update csv
+            if (isset($rowData['entity_id']) && $rowData['entity_id'] != 0) {
                 $review_id = (int)$rowData['entity_id'] ?? 0;
                 if (!$review_id || !in_array($review_id, $reviewIds)) {
                     $this->addRowError('ReviewIdNotExistIsRequired', $rowNum);
